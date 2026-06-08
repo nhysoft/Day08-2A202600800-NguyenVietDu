@@ -26,6 +26,9 @@ def convert_legal_docs():
         if filepath.suffix.lower() in (".pdf", ".docx", ".doc"):
             print(f"Converting: {filepath.name}")
             result = md.convert(str(filepath))
+            if not result.text_content or len(result.text_content) < 200:
+                print(f"  ⚠ Skip: {filepath.name} — PDF không có text layer (có thể là scan)")
+                continue
             output_path = output_dir / f"{filepath.stem}.md"
             output_path.write_text(result.text_content, encoding="utf-8")
             print(f"  ✓ Saved: {output_path.name} ({len(result.text_content)} chars)")
