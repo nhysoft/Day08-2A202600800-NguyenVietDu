@@ -13,5 +13,90 @@
     "question": "Danh mục các chất ma tuý thuộc nhóm I theo quy định pháp luật Việt Nam gồm những chất nào?",
     "expected_answer": "Nhóm I gồm các chất ma tuý tuyệt đối cấm sử dụng trong y học và đời sống, bao gồm heroin, cocaine, methamphetamine, MDMA (ecstasy), cannabis (cần sa), và các chất tương tự.",
     "expected_context": "Nghị định 57/2022/NĐ-CP, Phụ lục I"
+  },
+  {
+    "question": "Ca sĩ Chi Dân bị đề nghị truy tố về tội gì và cùng với ai?",
+    "expected_answer": "Chi Dân (Nguyễn Trung Hiếu) bị Công an TP HCM đề nghị truy tố về tội Tổ chức sử dụng trái phép chất ma túy, cùng anh trai là Nguyễn Trung Tín.",
+    "expected_context": "Bài báo VnExpress về Chi Dân (article_01)"
+  },
+  {
+    "question": "Tên thật, tuổi và quê quán của ca sĩ Chi Dân là gì?",
+    "expected_answer": "Chi Dân tên thật là Nguyễn Trung Hiếu, 36 tuổi, quê Kiên Giang, theo đuổi dòng nhạc Pop Ballad với các bài hit như Mất trí nhớ, Điều anh biết, 1234.",
+    "expected_context": "Bài báo VnExpress về Chi Dân (article_01)"
+  },
+  {
+    "question": "Trong 'tiệc ma túy' của Chi Dân, nhóm đã sử dụng những loại ma túy nào?",
+    "expected_answer": "Nhóm của Chi Dân đã sử dụng Ketamine, thuốc lắc và ma túy 'nước vui' (loại hiệu Ferrari được hòa vào nước ngọt để uống).",
+    "expected_context": "Bài báo VnExpress về Chi Dân (article_01)"
+  },
+  {
+    "question": "Đường dây ma túy qua 4 tiếp viên hàng không từ Pháp về Việt Nam có quy mô như thế nào?",
+    "expected_answer": "Công an TP HCM đã khởi tố tổng cộng 2.005 bị can, chứng minh số tiền giao dịch ma túy gần 29.000 tỷ đồng, thu giữ gần 600 kg ma túy cùng nhiều súng đạn, triệt phá đường dây hoạt động tại 34 tỉnh, thành.",
+    "expected_context": "Bài báo VnExpress về Chi Dân (article_01)"
+  },
+  {
+    "question": "Người mẫu An Tây (Andrea Aybar) có quốc tịch và nghề nghiệp gì?",
+    "expected_answer": "Andrea Aybar (An Tây) sinh năm 1995, mang quốc tịch Tây Ban Nha nhưng sống ở Việt Nam từ nhỏ, là người mẫu kiêm diễn viên, từng tham gia các phim như Để Mai tính phần 2, Đại gia chân đất.",
+    "expected_context": "Bài báo Lao Động về An Tây (article_02)"
+  },
+  {
+    "question": "Người mẫu Andrea Aybar bị bắt về những hành vi gì?",
+    "expected_answer": "Andrea Aybar bị Công an TP HCM bắt về hai hành vi Tàng trữ trái phép chất ma túy và Tổ chức sử dụng trái phép chất ma túy.",
+    "expected_context": "Bài báo VnExpress về Chi Dân (article_01)"
+  },
+  {
+    "question": "Diễn viên hài Hữu Tín bị tuyên án bao nhiêu năm tù và về tội gì?",
+    "expected_answer": "Trần Hữu Tín bị TAND quận 8 tuyên phạt 7 năm 6 tháng tù về tội Tổ chức sử dụng trái phép chất ma túy.",
+    "expected_context": "Bài báo VnExpress về Hữu Tín (article_04)"
+  },
+  {
+    "question": "Hữu Tín khai lý do sử dụng ma túy là gì?",
+    "expected_answer": "Hữu Tín khai sử dụng ma túy vì tò mò, lúc đó đã uống bia rượu nên không kìm chế được bản thân, dù biết ma túy có tác hại lớn đến sức khỏe.",
+    "expected_context": "Bài báo VnExpress về Hữu Tín (article_04)"
+  },
+  {
+    "question": "DJ Nguyễn Hoàng Phi trong vụ án Hữu Tín bị tuyên tổng hợp hình phạt bao nhiêu?",
+    "expected_answer": "DJ Nguyễn Hoàng Phi lĩnh 5 năm 6 tháng tù về tội Tàng trữ trái phép chất ma túy và 8 năm tù về tội Tổ chức sử dụng trái phép chất ma túy, tổng hợp hình phạt là 13 năm 6 tháng tù.",
+    "expected_context": "Bài báo VnExpress về Hữu Tín (article_04)"
+  },
+  {
+    "question": "Ca sĩ Châu Việt Cường bị tuyên án bao nhiêu năm tù và về tội gì?",
+    "expected_answer": "Châu Việt Cường bị TAND TP Hà Nội tuyên phạt 13 năm tù về tội Giết người.",
+    "expected_context": "Bài báo Lao Động về Châu Việt Cường (article_05)"
+  },
+  {
+    "question": "Vụ án Châu Việt Cường nhét tỏi vào miệng nạn nhân diễn ra như thế nào?",
+    "expected_answer": "Trong lúc sử dụng ma túy và bị 'ngáo đá', Châu Việt Cường rơi vào ảo giác, tưởng nữ sinh tên Huyền bị ma nhập nên đã nhét tỏi vào miệng nạn nhân để 'trừ tà', dẫn đến chị Huyền tử vong.",
+    "expected_context": "Bài báo Lao Động về Châu Việt Cường (article_05)"
+  },
+  {
+    "question": "Châu Việt Cường phải bồi thường cho gia đình nạn nhân bao nhiêu tiền?",
+    "expected_answer": "Châu Việt Cường phải bồi thường thêm 200 triệu đồng cho gia đình nạn nhân, được HĐXX chấp thuận đưa vào bản án.",
+    "expected_context": "Bài báo Lao Động về Châu Việt Cường (article_05)"
+  },
+  {
+    "question": "Bị cáo Phạm Đức Thế trong vụ Châu Việt Cường bị tuyên án gì?",
+    "expected_answer": "Phạm Đức Thế bị tuyên phạt 7 năm tù về tội Tàng trữ trái phép chất ma túy.",
+    "expected_context": "Bài báo Lao Động về Châu Việt Cường (article_05)"
+  },
+  {
+    "question": "'Cô tiên từ thiện' Nguyễn Đỗ Trúc Phương bị truy tố về tội gì và cùng với ai?",
+    "expected_answer": "Nguyễn Đỗ Trúc Phương (32 tuổi, biệt danh 'cô tiên từ thiện') bị truy tố về tội Tổ chức sử dụng trái phép chất ma túy, cùng bạn trai là Vũ Hải Anh (41 tuổi).",
+    "expected_context": "Bài báo VietnamNet về Trúc Phương (article_06)"
+  },
+  {
+    "question": "Trong bữa tiệc của Nguyễn Đỗ Trúc Phương, nhóm đã chuẩn bị những chất gì để sử dụng?",
+    "expected_answer": "Nhóm chuẩn bị bình khí cười cùng các chất ma túy gồm Ketamine, 'nước vui' và thuốc lắc (MDMA) để cả nhóm sử dụng.",
+    "expected_context": "Bài báo VietnamNet về Trúc Phương (article_06)"
+  },
+  {
+    "question": "Nhà thiết kế Nguyễn Công Trí được giới thiệu như thế nào trong bài báo?",
+    "expected_answer": "Nguyễn Công Trí là nhà thiết kế thời trang được mệnh danh là 'anh cả làng mốt Việt', có sự nghiệp vươn tầm quốc tế; việc ông bị bắt vì liên quan ma túy được xem như sự sụp đổ của một tượng đài.",
+    "expected_context": "Bài báo Tiền Phong về Nguyễn Công Trí (article_03)"
+  },
+  {
+    "question": "Theo chuyên gia điều tra ma túy (PC04), vì sao nhiều nghệ sĩ tìm đến ma túy?",
+    "expected_answer": "Theo Đại úy thuộc Phòng PC04 Công an TPHCM, nhiều nghệ sĩ không hẳn nghiện ma túy mà 'nghiện cảm giác' do ma túy tổng hợp tạo hưng phấn; nguyên nhân gồm lệch lạc tư tưởng, đua đòi, tò mò, môi trường showbiz căng thẳng, và việc tự ám thị rằng ma túy giúp kích thích khả năng sáng tạo.",
+    "expected_context": "Bài báo Tiền Phong về Nguyễn Công Trí (article_03)"
   }
 ]
