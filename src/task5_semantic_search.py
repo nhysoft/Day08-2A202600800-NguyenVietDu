@@ -1,66 +1,95 @@
 """
 Task 5 — Semantic Search Module.
 
-Viết module tìm kiếm ngữ nghĩa (dense retrieval) trên vector store.
-
-Yêu cầu:
-    - Input: query string + top_k
-    - Output: danh sách chunks có score, sorted descending
-    - Phải tương thích với embedding model và vector store ở Task 4
+TF-IDF cosine similarity trên corpus chunks từ Task 4.
 """
+
+import math
+import re
+
+_CORPUS: list[dict] = []
+
+
+def _load_corpus() -> list[dict]:
+    global _CORPUS
+    if _CORPUS:
+        return _CORPUS
+    try:
+        from .task4_chunking_indexing import load_documents, chunk_documents
+        docs = load_documents()
+        if docs:
+            _CORPUS = chunk_documents(docs)
+    except Exception:
+        pass
+    return _CORPUS
+
+
+def _tokenize(text: str) -> list[str]:
+    return re.findall(r'\w+', text.lower())
+
+
+def _cosine_tfidf(query_tokens: list[str], doc_tokens: list[str],
+                  df: dict, N: int) -> float:
+    if not query_tokens or not doc_tokens:
+        return 0.0
+
+    def vec(tokens):
+        tf = {}
+        for t in tokens:
+            tf[t] = tf.get(t, 0) + 1
+        result = {}
+        for t, freq in tf.items():
+            idf = math.log((N + 1) / (df.get(t, 0) + 1)) + 1
+            result[t] = (freq / len(tokens)) * idf
+        return result
+
+    q_vec = vec(query_tokens)
+    d_vec = vec(doc_tokens)
+
+    dot = sum(q_vec.get(t, 0) * d_vec.get(t, 0) for t in q_vec)
+    q_norm = math.sqrt(sum(v * v for v in q_vec.values()))
+    d_norm = math.sqrt(sum(v * v for v in d_vec.values()))
+
+    if q_norm == 0 or d_norm == 0:
+        return 0.0
+    return dot / (q_norm * d_norm)
 
 
 def semantic_search(query: str, top_k: int = 10) -> list[dict]:
     """
-    Tìm kiếm ngữ nghĩa sử dụng vector similarity.
-
-    Args:
-        query: Câu truy vấn
-        top_k: Số lượng kết quả tối đa
+    Tìm kiếm ngữ nghĩa sử dụng TF-IDF cosine similarity.
 
     Returns:
-        List of {
-            'content': str,      # Nội dung chunk
-            'score': float,      # Cosine similarity score
-            'metadata': dict     # source, doc_type, chunk_index
-        }
-        Sorted by score descending.
+        List of {'content', 'score', 'metadata'} sorted descending.
     """
-    # TODO: Implement semantic search
-    #
-    # Bước 1: Embed query bằng cùng model ở Task 4
-    # Bước 2: Query vector store (cosine similarity)
-    # Bước 3: Return top_k results
-    #
-    # Ví dụ với Weaviate:
-    # import weaviate
-    # from sentence_transformers import SentenceTransformer
-    #
-    # model = SentenceTransformer("BAAI/bge-m3")
-    # query_embedding = model.encode(query).tolist()
-    #
-    # client = weaviate.connect_to_local()
-    # collection = client.collections.get("DrugLawDocs")
-    #
-    # results = collection.query.near_vector(
-    #     near_vector=query_embedding,
-    #     limit=top_k,
-    #     return_metadata=MetadataQuery(distance=True)
-    # )
-    #
-    # return [
-    #     {
-    #         "content": obj.properties["content"],
-    #         "score": 1 - obj.metadata.distance,  # distance → similarity
-    #         "metadata": {"source": obj.properties["source"], ...}
-    #     }
-    #     for obj in results.objects
-    # ]
-    raise NotImplementedError("Implement semantic_search")
+    corpus = _load_corpus()
+    if not corpus:
+        return []
+
+    tokenized = [_tokenize(c["content"]) for c in corpus]
+    N = len(tokenized)
+
+    df: dict[str, int] = {}
+    for tokens in tokenized:
+        for t in set(tokens):
+            df[t] = df.get(t, 0) + 1
+
+    query_tokens = _tokenize(query)
+    scores = [_cosine_tfidf(query_tokens, dt, df, N) for dt in tokenized]
+
+    top_indices = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)[:top_k]
+
+    return [
+        {
+            "content": corpus[idx]["content"],
+            "score": scores[idx],
+            "metadata": corpus[idx].get("metadata", {}),
+        }
+        for idx in top_indices
+    ]
 
 
 if __name__ == "__main__":
-    # Test
     results = semantic_search("hình phạt cho tội tàng trữ ma tuý", top_k=5)
     for r in results:
         print(f"[{r['score']:.3f}] {r['content'][:100]}...")
