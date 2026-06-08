@@ -335,13 +335,3 @@ python3 src/task10_generation.py         # Test generation
 | Reranking | RRF + keyword overlap (pure Python) |
 | Generation | Anthropic Claude Haiku |
 
----
-
-## Tài Liệu Tham Khảo
-
-- [MarkItDown](https://github.com/microsoft/markitdown) — Microsoft document converter
-- [LangChain Text Splitters](https://python.langchain.com/docs/modules/data_connection/document_transformers/)
-- [ChromaDB](https://docs.trychroma.com/)
-- [Crawl4AI](https://github.com/unclecode/crawl4ai)
-- Liu et al. (2023), *Lost in the Middle: How Language Models Use Long Contexts*
-- Cormack et al. (2009), *Reciprocal Rank Fusion outperforms Condorcet and individual rank learning*
